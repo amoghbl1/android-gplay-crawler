@@ -1,0 +1,40 @@
+{
+  "name": "android-gplay-crawler",
+  "version": "1.0.0",
+  "description": "Drive a physical Android device to download apps and obtain APKs.",
+  "dependencies": {
+    "adbkit": "2.11.0",
+    "express": ">=4.17.3",
+    "gm": "1.23.1",
+    "shelljs": ">=0.8.5",
+    "socket.io": ">=2.4.0",
+    "woothee": "1.10.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.4.0"
+  },
+  "scripts": {
+    "crawl": "node perform-crawl.js"
+  },
+  "author": "Amogh Pradeep",
+  "email": "amoghbl1@gmail.com",
+  "license": "Apache-2.0",
+  "main": "perform-crawl.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoghbl1/android-gplay-crawler.git"
+  },
+  "keywords": [
+    "Google",
+    "Play",
+    "Crawler",
+    "Play",
+    "Android",
+    "Crawler"
+  ],
+  "bugs": {
+    "url": "https://github.com/amoghbl1/android-gplay-crawler/issues"
+  },
+  "homepage": "https://github.com/amoghbl1/android-gplay-crawler#readme"
+}

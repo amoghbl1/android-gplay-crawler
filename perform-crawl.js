@@ -32,7 +32,7 @@ const adb      = require('adbkit');
   await createDirectories([APKS_BASE_DIR, APKS_DIR])
 
   // Read packages file for which packages to download
-  let packagesToDownload = readPackagesFile();
+  let packagesToDownload = readPackagesFile()
 
   console.log(`Downloading ${packagesToDownload.length} apks`);
   packagesToDownload.forEach((item, i) => {
@@ -42,7 +42,8 @@ const adb      = require('adbkit');
 })();
 
 function readPackagesFile() {
-  return fs.readFileSync(PACKAGE_NAMES_FILE, 'utf8').split("\n");
+  return fs.readFileSync(PACKAGE_NAMES_FILE, 'utf8').split("\n")
+            .filter(e => typeof e === 'string' && e !== '' && !e.startsWith("#"))
 }
 
 async function createDirectories(directories) {

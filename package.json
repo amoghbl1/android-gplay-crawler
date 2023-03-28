@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Drive a physical Android device to download apps and obtain APKs.",
   "dependencies": {
-    "adbkit": "2.11.0",
+    "@u4/adbkit": "^4.1.18",
     "express": ">=4.17.3",
     "gm": "1.23.1",
     "shelljs": ">=0.8.5",

@@ -23,10 +23,10 @@ const adb      = require('adbkit');
 
 ( async() => {
   // Interfaces needed for Android
-  //const client = adb.createClient();
-  //const devices = await client.listDevices();
+  const client = adb.createClient();
+  const devices = await client.listDevices();
   // Moving to working with just one device
-  //const device = devices[0];
+  const device = devices[0];
 
   // Setup all required folders
   await createDirectories([APKS_BASE_DIR, APKS_DIR])
@@ -35,11 +35,28 @@ const adb      = require('adbkit');
   let packagesToDownload = readPackagesFile()
 
   console.log(`Downloading ${packagesToDownload.length} apks`);
-  packagesToDownload.forEach((item, i) => {
-    console.log(`Trying to download package: ${item}`)
-  });
+
+  for (let package_name of packagesToDownload) {
+    console.log(`Trying to download package: ${package_name}`);
+
+    await downloadFromPlay(client, device.id, package_name);
+
+  }
 
 })();
+
+async function downloadFromPlay(client, id, package_name) {
+
+  await client.shell(id, `am start -a android.intent.action.VIEW -d market://details?id=${package_name}`)
+    .catch(async () => {
+      console.log(`Failed to launch play store for package: ${package_name}`);
+    });
+  await sleep(2000);
+
+  // X = 600, Y = 780
+  await client.shell(id, `input tap 600 780`);
+  await sleep(5000);
+}
 
 function readPackagesFile() {
   return fs.readFileSync(PACKAGE_NAMES_FILE, 'utf8').split("\n")

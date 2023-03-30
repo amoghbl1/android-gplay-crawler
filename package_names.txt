@@ -1,0 +1,3 @@
+# A list of packages (one per line), new lines and '#' starting lines ignored
+
+some.package.name

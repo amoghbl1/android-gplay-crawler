@@ -12,6 +12,11 @@ const PACKAGE_NAMES_FILE = `./package_names.txt`;
 // When to kill adb
 const ADB_KILL_THRESHOLD = 25
 
+// Device install button location
+// X = 600, Y = 780 for our device
+DEVICE_X = 600
+DEVICE_Y = 780
+
 // Modules
 const sleep    = ms => new Promise( resolve => setTimeout( resolve, ms ) );
 const fs       = require('fs');
@@ -91,8 +96,7 @@ async function maybeDownloadFromPlay(deviceClient, package_name) {
     });
   await sleep(2000);
 
-  // X = 600, Y = 780 for our device
-  await deviceClient.extra.tap('600', '780');
+  await deviceClient.extra.tap(DEVICE_X, DEVICE_Y);
   await sleep(2000);
 }
 

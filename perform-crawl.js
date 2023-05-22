@@ -14,8 +14,8 @@ const ADB_KILL_THRESHOLD = 25
 
 // Device install button location
 // X = 600, Y = 780 for our device
-DEVICE_X = 600
-DEVICE_Y = 780
+const DEVICE_X = 600
+const DEVICE_Y = 780
 
 // Modules
 const sleep    = ms => new Promise( resolve => setTimeout( resolve, ms ) );
